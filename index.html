@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishal | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Creative Decor Background Template -->
+  <div class="decor-background" aria-hidden="true">
+    <div class="decor-glow-orb orb-1"></div>
+    <div class="decor-glow-orb orb-2"></div>
+    <div class="decor-grid-mesh"></div>
+    <canvas id="decor-canvas" class="decor-canvas"></canvas>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar" id="top-navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-badge">V</span>
+        <span class="logo-text" data-editable="brand-name">Vishal</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" class="nav-item">Home</a>
+        <a href="#about" class="nav-item">About & Achievements</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#resume" class="nav-item">Resume</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Creative Theme Switcher Dropdown -->
+        <div class="theme-dropdown-container">
+          <button id="theme-menu-btn" class="btn-theme-toggle" aria-expanded="false" title="Switch Theme">
+            <span class="theme-btn-icon">🎨</span>
+            <span id="active-theme-name" class="active-theme-label">Cyber Blue</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+          <div id="theme-dropdown-menu" class="theme-dropdown-menu hidden">
+            <div class="theme-menu-header">Select Visual Theme</div>
+            <button class="theme-choice-btn active" data-set-theme="cyber-blue">
+              <span class="theme-color-dot" style="background: #3b82f6;"></span>
+              <span>Cyber Blue</span>
+            </button>
+            <button class="theme-choice-btn" data-set-theme="neon-violet">
+              <span class="theme-color-dot" style="background: #a855f7;"></span>
+              <span>Neon Violet</span>
+            </button>
+            <button class="theme-choice-btn" data-set-theme="emerald-code">
+              <span class="theme-color-dot" style="background: #10b981;"></span>
+              <span>Emerald Code</span>
+            </button>
+            <button class="theme-choice-btn" data-set-theme="sunset-amber">
+              <span class="theme-color-dot" style="background: #f59e0b;"></span>
+              <span>Sunset Amber</span>
+            </button>
+            <button class="theme-choice-btn" data-set-theme="clean-light">
+              <span class="theme-color-dot" style="background: #ffffff; border: 1px solid #94a3b8;"></span>
+              <span>Clean Light</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Edit Mode Switch -->
+        <button id="edit-mode-toggle" class="btn-edit-toggle" title="Toggle Edit Mode to customize text">
+          <span class="edit-icon">✏️</span>
+          <span id="edit-toggle-label">Edit Mode: OFF</span>
+        </button>
+
+        <!-- Top Hire Me Button -->
+        <button class="btn-primary hire-btn" id="top-hire-btn">Hire Me</button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Edit Mode Control Bar (Visible when Edit Mode is active) -->
+  <div id="edit-control-bar" class="edit-control-bar hidden">
+    <div class="edit-bar-content">
+      <div class="edit-status">
+        <span class="status-indicator"></span>
+        <span><strong>Live Edit Mode Active:</strong> Click any text or section to edit.</span>
+      </div>
+      <div class="edit-actions">
+        <button id="save-edits-btn" class="btn-save">💾 Save Changes</button>
+        <button id="reset-edits-btn" class="btn-reset">↺ Reset to Default</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Home Section -->
+    <section id="home" class="section home-section">
+      <div class="container home-layout">
+        <div class="home-text">
+          <div class="status-indicator-pill">
+            <span class="status-pulse-dot"></span>
+            <span data-editable="status-pill-text">Available for Opportunities & Learning</span>
+          </div>
+          <div class="badge" data-editable="home-badge">B.Tech First-Year Student</div>
+          <h1 class="home-title">
+            Hi, I'm <span class="highlight" data-editable="home-name">Vishal</span>
+          </h1>
+          <p class="home-intro" data-editable="home-intro">
+            I am from Sikar and currently studying at JECERC University as a first-year B.Tech student. Welcome to my personal portfolio!
+          </p>
+
+          <!-- Clickable Buttons to Other Sections -->
+          <div class="home-nav-buttons">
+            <a href="#about" class="btn-outline">About & Achievements</a>
+            <a href="#skills" class="btn-outline">My Skills</a>
+            <a href="#resume" class="btn-outline">View Resume</a>
+            <a href="#contact" class="btn-outline">Contact Information</a>
+          </div>
+        </div>
+
+        <div class="home-profile">
+          <div class="profile-card">
+            <div class="profile-img-wrap" id="profile-img-wrap" title="Profile Photo (Editable in Edit Mode)">
+              <!-- Profile Picture / Photo -->
+              <img id="profile-img" class="profile-avatar" src="data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='96' fill='%231e293b' stroke='%233b82f6' stroke-width='6'/><circle cx='100' cy='80' r='38' fill='%23e2e8f0'/><path d='M42 165 C48 125, 75 115, 100 115 C125 115, 152 125, 158 165' fill='%233b82f6'/><path d='M72 74 Q100 55 128 74' stroke='%230f172a' stroke-width='4' stroke-linecap='round'/><circle cx='86' cy='82' r='4.5' fill='%230f172a'/><circle cx='114' cy='82' r='4.5' fill='%230f172a'/><path d='M92 98 Q100 106 108 98' stroke='%230f172a' stroke-width='3.5' stroke-linecap='round'/></svg>" alt="Profile Picture of Vishal">
+              <!-- Live Photo Edit Overlay -->
+              <div class="photo-edit-overlay" id="photo-edit-overlay">
+                <span class="camera-icon">📷</span>
+                <span class="change-text">Change Photo</span>
+              </div>
+              <input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
+            </div>
+            <!-- Photo Edit Quick Buttons (Visible in Edit Mode) -->
+            <div class="photo-edit-options" id="photo-edit-options">
+              <button type="button" class="btn-photo-action" id="upload-photo-btn">📁 Upload File</button>
+              <button type="button" class="btn-photo-action" id="url-photo-btn">🔗 Image URL</button>
+            </div>
+            <div class="profile-meta">
+              <h3 data-editable="profile-card-name">Vishal</h3>
+              <p data-editable="profile-card-college">JECERC University</p>
+              <span class="location-tag" data-editable="profile-card-location">📍 Sikar, Rajasthan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: About Myself, Achievements, and Hobbies -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Myself</h2>
+          <p class="section-subtitle" data-editable="about-summary">
+            Get to know about me, my academic milestones, and my personal interests.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- About Myself Card -->
+          <div class="card about-bio-card">
+            <div class="card-icon">🎓</div>
+            <h3>Who I Am</h3>
+            <p data-editable="about-bio-text">
+              I am Vishal, hailing from Sikar. I am currently pursuing my B.Tech degree as a first-year student at JECERC University. I have a keen passion for technology and active learning.
+            </p>
+          </div>
+
+          <!-- Achievements Card -->
+          <div class="card achievements-card">
+            <div class="card-icon">🏆</div>
+            <h3>My Achievements</h3>
+            <ul class="feature-list" id="achievements-list">
+              <li>
+                <span class="bullet">✔</span>
+                <div>
+                  <strong data-editable="achieve-item-1-title">C Language</strong>
+                  <p data-editable="achieve-item-1-desc">Foundation in programming concepts and algorithms.</p>
+                </div>
+              </li>
+              <li>
+                <span class="bullet">✔</span>
+                <div>
+                  <strong data-editable="achieve-item-2-title">Certificate from IBM</strong>
+                  <p data-editable="achieve-item-2-desc">Certified credential earned through technical program completion.</p>
+                </div>
+              </li>
+              <li>
+                <span class="bullet">✔</span>
+                <div>
+                  <strong data-editable="achieve-item-3-title">Learning C Language</strong>
+                  <p data-editable="achieve-item-3-desc">Continuously expanding problem solving and coding capabilities in C.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hobbies Card -->
+          <div class="card hobbies-card">
+            <div class="card-icon">🎯</div>
+            <h3>My Hobbies</h3>
+            <div class="hobbies-tags" id="hobbies-tags">
+              <div class="hobby-tag">
+                <span class="hobby-icon">🏀</span>
+                <span data-editable="hobby-1">Play Basketball</span>
+              </div>
+              <div class="hobby-tag">
+                <span class="hobby-icon">🎮</span>
+                <span data-editable="hobby-2">Playing Online Games</span>
+              </div>
+              <div class="hobby-tag">
+                <span class="hobby-icon">📚</span>
+                <span data-editable="hobby-3">Studying</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Skills -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">My Skills</h2>
+          <p class="section-subtitle" data-editable="skills-subtitle">
+            A combination of communication skills, physical fitness, and disciplined athletic abilities.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- English Fluency -->
+          <div class="skill-card">
+            <div class="skill-icon">🗣️</div>
+            <h3 data-editable="skill-1-title">Fluent in English</h3>
+            <p data-editable="skill-1-desc">Effective verbal and written communication.</p>
+          </div>
+
+          <!-- Athletic -->
+          <div class="skill-card">
+            <div class="skill-icon">⚡</div>
+            <h3 data-editable="skill-2-title">Athletic</h3>
+            <p data-editable="skill-2-desc">Active physical conditioning, speed, and agility.</p>
+          </div>
+
+          <!-- Calisthenics -->
+          <div class="skill-card">
+            <div class="skill-icon">💪</div>
+            <h3 data-editable="skill-3-title">Calisthenics</h3>
+            <p data-editable="skill-3-desc">Bodyweight training, muscular control, and balance.</p>
+          </div>
+
+          <!-- 6 km Endurance Run -->
+          <div class="skill-card">
+            <div class="skill-icon">🏃</div>
+            <h3 data-editable="skill-4-title">6 km Non-stop Running</h3>
+            <p data-editable="skill-4-desc">I can run 6 km without any break, demonstrating high cardiovascular endurance and stamina.</p>
+          </div>
+
+          <!-- Fighting Skills -->
+          <div class="skill-card">
+            <div class="skill-icon">🥊</div>
+            <h3 data-editable="skill-5-title">Learning Fighting Skills</h3>
+            <p data-editable="skill-5-desc">Enthusiastic about martial arts, reflexes, and defensive combat techniques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Resume -->
+    <section id="resume" class="section resume-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Resume</h2>
+          <p class="section-subtitle" data-editable="resume-subtitle">
+            A comprehensive overview of my education, achievements, and core skills.
+          </p>
+          <div class="resume-download-bar">
+            <button id="download-resume-btn" class="btn-primary btn-large">
+              <span>📥</span> Download Resume (PDF)
+            </button>
+          </div>
+        </div>
+
+        <!-- Printable & Viewable Resume Document Card -->
+        <div class="resume-sheet" id="resume-document">
+          <header class="resume-header">
+            <div>
+              <h2 class="resume-name" data-editable="res-name">VISHAL</h2>
+              <p class="resume-tagline" data-editable="res-tagline">B.Tech First-Year Student | JECERC University</p>
+              <p class="resume-subinfo" data-editable="res-location">Location: Sikar, Rajasthan</p>
+            </div>
+            <div class="resume-contact-summary">
+              <p data-editable="res-email">📧 vishal@jecerc.ac.in</p>
+              <p data-editable="res-phone">📱 +91 98765 43210</p>
+              <p data-editable="res-github">💻 github.com/vishaleaj</p>
+              <p data-editable="res-linkedin">🔗 linkedin.com/in/vishal-j-02382b432</p>
+            </div>
+          </header>
+
+          <hr class="resume-divider">
+
+          <div class="resume-block">
+            <h3 class="resume-block-title">Education</h3>
+            <div class="resume-item">
+              <div class="resume-item-head">
+                <span class="item-title" data-editable="res-edu-degree">Bachelor of Technology (B.Tech) - 1st Year</span>
+                <span class="item-date" data-editable="res-edu-status">Currently Studying</span>
+              </div>
+              <p class="item-place" data-editable="res-edu-college">JECERC University</p>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <h3 class="resume-block-title">Achievements</h3>
+            <ul class="resume-list">
+              <li><strong data-editable="res-ach-1">C Language:</strong> Understanding foundational programming principles.</li>
+              <li><strong data-editable="res-ach-2">Certificate from IBM:</strong> Successfully completed certified training program.</li>
+              <li><strong data-editable="res-ach-3">Learning C Language:</strong> Actively advancing skills and solving coding problems in C.</li>
+            </ul>
+          </div>
+
+          <div class="resume-block">
+            <h3 class="resume-block-title">Skills</h3>
+            <div class="resume-pill-group">
+              <span class="resume-pill" data-editable="res-sk-1">Fluent in English</span>
+              <span class="resume-pill" data-editable="res-sk-2">Athletic</span>
+              <span class="resume-pill" data-editable="res-sk-3">Calisthenics</span>
+              <span class="resume-pill" data-editable="res-sk-4">6 km Non-stop Running Endurance</span>
+              <span class="resume-pill" data-editable="res-sk-5">Learning Fighting Skills</span>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <h3 class="resume-block-title">Hobbies & Interests</h3>
+            <p class="resume-inline-text" data-editable="res-hobbies">
+              Play Basketball • Playing Online Games • Studying
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Contact Information Page -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-editable="contact-badge">Get In Touch</div>
+          <h2 class="section-title">Contact Information</h2>
+          <p class="section-subtitle" data-editable="contact-subtitle">
+            Feel free to reach out to me directly via email, phone, or by sending a message below.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Left Column: Contact Cards -->
+          <div class="contact-details-col">
+            <div class="contact-card">
+              <div class="contact-icon">✉️</div>
+              <h3>Email Address</h3>
+              <p class="contact-value" id="contact-email-val" data-editable="contact-email">vishal@jecerc.ac.in</p>
+              <a href="mailto:vishal@jecerc.ac.in" id="contact-email-link" class="contact-action-btn">Send Direct Email</a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">📞</div>
+              <h3>Phone Number</h3>
+              <p class="contact-value" id="contact-phone-val" data-editable="contact-phone">+91 98765 43210</p>
+              <a href="tel:+919876543210" id="contact-phone-link" class="contact-action-btn">Call Now</a>
+            </div>
+
+            <!-- New Box for Links: GitHub & LinkedIn -->
+            <div class="contact-card social-links-card">
+              <div class="contact-icon">🌐</div>
+              <h3>Online Profiles & Links</h3>
+              <p class="links-desc">Connect with me and explore my code & network:</p>
+              
+              <div class="social-links-grid">
+                <!-- GitHub Profile Link -->
+                <a href="https://github.com/vishaleaj" target="_blank" rel="noopener noreferrer" class="social-link-item" id="github-link" title="Visit Vishal's GitHub Profile">
+                  <div class="social-item-main">
+                    <span class="social-platform-icon gh-icon" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                    </span>
+                    <div class="social-text">
+                      <span class="social-title">GitHub</span>
+                      <span class="social-handle" id="github-url-val" data-editable="contact-github">github.com/vishaleaj</span>
+                    </div>
+                  </div>
+                  <span class="social-arrow">↗</span>
+                </a>
+
+                <!-- LinkedIn Profile Link -->
+                <a href="https://www.linkedin.com/in/vishal-j-02382b432" target="_blank" rel="noopener noreferrer" class="social-link-item" id="linkedin-link" title="Visit Vishal's LinkedIn Profile">
+                  <div class="social-item-main">
+                    <span class="social-platform-icon li-icon" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                    </span>
+                    <div class="social-text">
+                      <span class="social-title">LinkedIn</span>
+                      <span class="social-handle" id="linkedin-url-val" data-editable="contact-linkedin">linkedin.com/in/vishal-j-02382b432</span>
+                    </div>
+                  </div>
+                  <span class="social-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-meta-card">
+              <div class="meta-item">
+                <span class="meta-icon">📍</span>
+                <div>
+                  <strong>Location</strong>
+                  <p data-editable="contact-loc-val">Sikar, Rajasthan, India</p>
+                </div>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">🏫</span>
+                <div>
+                  <strong>Institution</strong>
+                  <p data-editable="contact-inst-val">JECERC University (B.Tech 1st Year)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Creative Contact Form -->
+          <div class="contact-form-col">
+            <div class="form-container-card">
+              <div class="form-header">
+                <span class="form-sparkle">✨</span>
+                <h3>Send a Creative Message</h3>
+                <p>Have an inquiry or project? Drop your message below.</p>
+              </div>
+
+              <form id="portfolio-contact-form" class="creative-form" novalidate>
+                <div class="form-group">
+                  <label for="form-name">Your Name</label>
+                  <div class="input-wrap">
+                    <span class="input-icon">👤</span>
+                    <input type="text" id="form-name" placeholder="Enter your full name" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email">Your Email</label>
+                  <div class="input-wrap">
+                    <span class="input-icon">📨</span>
+                    <input type="email" id="form-email" placeholder="name@example.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-topic">Inquiring About</label>
+                  <div class="input-wrap">
+                    <span class="input-icon">🏷️</span>
+                    <select id="form-topic" required>
+                      <option value="General Collaboration">General Collaboration</option>
+                      <option value="Hiring & Internship Opportunity">Hiring & Internship Opportunity</option>
+                      <option value="Academics & C Programming">Academics & C Programming</option>
+                      <option value="Sports & Basketball">Sports & Basketball</option>
+                      <option value="Quick Hello">Quick Hello</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="label-row">
+                    <label for="form-message">Message</label>
+                    <span class="char-counter" id="char-counter">0 / 500</span>
+                  </div>
+                  <div class="input-wrap textarea-wrap">
+                    <textarea id="form-message" rows="4" maxlength="500" placeholder="Type your message here..." required></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-submit-creative" id="form-submit-btn">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-icon">🚀</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- "Hire Me" Modal with Creative Hire Form -->
+  <div id="hire-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge">Hire Vishal</div>
+        <h3 id="modal-title">Quick Hire Inquiry</h3>
+        <p>Interested in hiring or collaborating? Submit a proposal or connect directly:</p>
+      </div>
+
+      <!-- Quick Role Selection Pills -->
+      <form id="hire-inquiry-form" class="hire-form">
+        <label class="form-label-sm">Select Opportunity Type:</label>
+        <div class="hire-role-pills">
+          <button type="button" class="role-pill active" data-role="Internship">💼 Internship</button>
+          <button type="button" class="role-pill" data-role="Project">💻 Project</button>
+          <button type="button" class="role-pill" data-role="Part-time">⏱️ Part-Time</button>
+          <button type="button" class="role-pill" data-role="Collaboration">🤝 Collaboration</button>
+        </div>
+
+        <div class="form-group-sm">
+          <input type="text" id="hire-company" placeholder="Your Name or Organization" required class="input-sm">
+        </div>
+
+        <div class="form-group-sm">
+          <input type="email" id="hire-email" placeholder="Your Contact Email" required class="input-sm">
+        </div>
+
+        <div class="form-group-sm">
+          <textarea id="hire-details" rows="3" placeholder="Brief description of the role or project..." class="input-sm"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block">Submit Hire Inquiry 🚀</button>
+      </form>
+
+      <div class="modal-divider"><span>OR REACH OUT DIRECTLY</span></div>
+
+      <div class="modal-body">
+        <div class="modal-contact-item">
+          <span class="m-icon">✉️</span>
+          <div>
+            <strong>Email:</strong>
+            <p id="modal-email-text">vishal@jecerc.ac.in</p>
+          </div>
+          <a href="mailto:vishal@jecerc.ac.in" class="btn-sm">Email Me</a>
+        </div>
+
+        <div class="modal-contact-item">
+          <span class="m-icon">📞</span>
+          <div>
+            <strong>Phone:</strong>
+            <p id="modal-phone-text">+91 98765 43210</p>
+          </div>
+          <a href="tel:+919876543210" class="btn-sm">Call Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p data-editable="footer-text">© 2026 Vishal | B.Tech First-Year Student at JECERC University, Sikar</p>
+      <a href="#home" class="back-to-top">↑ Back to Top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
